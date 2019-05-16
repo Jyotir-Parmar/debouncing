@@ -4,9 +4,13 @@
  * @param {*} waitTime Waiting time.
  */
 const debounce = (func, waitTime) => {
+    // setTimeout api id
     let timerId;
     return (...args) => {
+        // If gets invoked within given wait time period then clear the setTimeout event.
         clearTimeout(timerId);
+
+        // Register setTimeout for given wait time.
         timerId = setTimeout(() => {
             func.apply(this, args);
         }, waitTime);
