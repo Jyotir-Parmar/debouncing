@@ -12,7 +12,9 @@ const debounce = (func, waitTime) => {
 
         // Register setTimeout for given wait time.
         timerId = setTimeout(() => {
-            func.apply(this, args);
+            func(...args);
         }, waitTime);
     }
 }
+
+export default debounce;
